@@ -1,0 +1,16 @@
+lin::::pushd /home/bob; popd::stores and returns values
+lin::::sudo !!::returns last run command
+lin::::history;!-2::returns 2nd to last command in history
+lin::::ls -l *.sh; ls -lFa !$::returns the return value of previous command
+lin::::ls -l *.sh *.py; ls -lFa !^::::returns the first argument of previous command
+lin::::ls -l *.sh *.py; ls -lFa !ls:2::::returns the second argument of previous command
+lin::::mv filename.{old,new}::::renames filename from .old to .new
+lin::::words="Uppercase words and ALL"; echo ${words,,}::::returns lowercase words
+lin::::ls; rm !(*.c|*.py)::::removes all files but .c and .py
+lin::::touch -d "9am" temp1; touch -d "5pm" temp2; find . -newer ../temp1 ! -newer ../temp2 -exec cp '{}' ./bak/ ';':::finds files newer than temp1 but not newer than temp2 and copies them to bak
+lin::::grep -l "return" *.py::::return all py files that contain return
+lin::::find ./ -name "*.py" | xargs grep -R "return"::::returns lines in py files with the strip return
+lin::::man -k login::::search manpages for string login
+lin::::touch new > /tmp 2>&1::::redirect stdout and sterr to stdout only
+lin::::echo "Simulate on-screen typing line in the movies"| pv -qL 10::::
+lin::::./script.sh | tee logfile::::redirects to logfile while leaving stdout alone
